@@ -39,33 +39,48 @@
 
     <main class="max-w-6xl mx-auto p-6 space-y-12">
 
-        <section id="notices">
-            <h2 class="text-3xl font-bold mb-8">📢 Latest Information</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                
-                <div class="glass p-6 rounded-2xl hover:scale-105 transition-transform">
-                    <span class="bg-red-400 text-xs font-bold px-2 py-1 rounded uppercase">Urgent</span>
-                    <h3 class="text-xl font-semibold mt-3">Weekly CXM Connect</h3>
-                    <p class="mt-2 text-gray-600">The South CXM meeting is scheduled every Friday from 2:00 PM to 3:00 PM on Teams.</p>
-                    <p class="mt-4 text-sm opacity-70">Posted: 1 hours ago</p>
-                </div>
-
-                <div class="glass p-6 rounded-2xl hover:scale-105 transition-transform">
-                    <span class="bg-green-400 text-xs font-bold px-2 py-1 rounded uppercase">Update</span>
-                    <h3 class="text-xl font-semibold mt-3">New DMS bulletin released on Booking experience</h3>
-                    <p class="mt-2 text-gray-600">Check the DMS portal for the updated bulletin and ensure it is followed going forward.</p>
-                    <p class="mt-4 text-sm opacity-70">Posted: Yesterday</p>
-                </div>
-
-                <div class="glass p-6 rounded-2xl hover:scale-105 transition-transform">
-                    <span class="bg-blue-400 text-xs font-bold px-2 py-1 rounded uppercase">Event</span>
-                    <h3 class="text-xl font-semibold mt-3">CXM Recognition Program</h3>
-                    <p class="mt-2 text-gray-600">The Q1 CXM assessment will be released shortly, along with recognition for the top-performing CXMs.</p>
-                    <p class="mt-4 text-sm opacity-70">Posted: 3 days ago</p>
-                </div>
-
+        <section id="notices" class="max-w-6xl mx-auto p-6">
+            <h2 class="text-4xl font-light tracking-tight mb-8">Latest <span class="font-bold">Notices</span></h2>
+            <div id="notice-container" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <p class="text-gray-500">Loading notices...</p>
             </div>
         </section>
+        <script>
+            fetch('./notices.json')
+                .then(response => response.json())
+                .then(data => {
+                    const container = document.getElementById('notice-container');
+                    container.innerHTML = ''; 
+
+                    // Sort data by date: Newest First
+                    data.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+                    data.forEach(notice => {
+                        // Formatting the date to be more readable (e.g., Feb 21, 2026)
+                        const formattedDate = new Date(notice.date).toLocaleDateString('en-US', {
+                            month: 'short',
+                            day: 'numeric',
+                            year: 'numeric'
+                        });
+
+                        const card = `
+                            <div class="glass p-8 rounded-3xl hover:bg-black/5 transition-all border-l-4 ${notice.color}">
+                                <div class="flex justify-between items-start mb-2">
+                                    <span class="text-xs tracking-widest uppercase opacity-60">${notice.category}</span>
+                                    <span class="text-xs font-medium text-gray-400">${formattedDate}</span>
+                                </div>
+                                <h3 class="text-xl font-bold">${notice.title}</h3>
+                                <p class="mt-4 text-gray-600 leading-relaxed">${notice.description}</p>
+                            </div>
+                        `;
+                        container.innerHTML += card;
+                    });
+                })
+                .catch(err => {
+                    console.error("Error loading notices:", err);
+                    document.getElementById('notice-container').innerHTML = "Failed to load notices.";
+                });
+        </script>
 
         <section id="survey" class="max-w-4xl mx-auto px-4 py-10">
             <div class="glass rounded-3xl shadow-2xl border border-black/10 overflow-hidden bg-white">
@@ -96,8 +111,6 @@
 </body>
 
 </html>
-
-
 
 
 
