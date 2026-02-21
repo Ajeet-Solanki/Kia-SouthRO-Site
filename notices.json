@@ -1,0 +1,23 @@
+[
+  {
+    "category": "Urgent",
+    "date": "2026-02-21",
+    "title": "Weekly CXM Connect",
+    "description": "The South CXM meeting is scheduled every Friday from 2:00 PM to 3:00 PM on Teams.",
+    "color": "border-black"
+  },
+  {
+    "category": "Update",
+    "date": "2026-02-21",
+    "title": "New DMS bulletin released on Booking experience",
+    "description": "Check the DMS portal for the updated bulletin and ensure it is followed going forward.",
+    "color": "border-gray-300"
+  },
+ {
+    "category": "Event",
+    "date": "2026-02-21",
+    "title": "CXM Recognition Program",
+    "description": "The Q1 CXM assessment will be released shortly, along with recognition for the top-performing CXMs.",
+    "color": "border-gray-300"
+  }
+]
