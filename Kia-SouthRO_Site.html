@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Notice Board</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-color: #ffffff; /* Pure white background */
+            color: #000000;            /* Black text */
+            min-height: 100vh;
+        }
+
+        .glass {
+            /* Subtle light grey background for cards to separate them from the white body */
+            background: rgba(0, 0, 0, 0.03); 
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        /* Ensure the navigation bar stands out slightly */
+        nav.glass {
+            border-bottom: 1px solid #eeeeee;
+        }
+    </style>
+</head>
+<body class="text-black font-sans">
+
+    <nav class="p-4 flex justify-between items-center glass sticky top-0 z-50 px-8">
+        <div class="flex items-center">
+            <img src="KIA.png" alt="Company Logo" class="h-7 w-auto object-contain">
+        </div>
+        <div class="space-x-8 hidden md:flex items-center">
+            <a href="#notices" class="hover:text-gray-300 transition font-medium">Notice Board</a>
+            <a href="#survey" class="bg-black text-white px-6 py-2 rounded-full font-bold hover:bg-gray-200 transition">Survey</a>
+        </div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto p-6 space-y-12">
+
+        <section id="notices">
+            <h2 class="text-3xl font-bold mb-8">📢 Latest Information</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <div class="glass p-6 rounded-2xl hover:scale-105 transition-transform">
+                    <span class="bg-red-400 text-xs font-bold px-2 py-1 rounded uppercase">Urgent</span>
+                    <h3 class="text-xl font-semibold mt-3">Weekly CXM Meet</h3>
+                    <p class="mt-2 text-gray-600">The CXM meet is scheduled for Friday at 2:00 PM to 3:00 PM every week in Teams.</p>
+                    <p class="mt-4 text-sm opacity-70">Posted: 1 hours ago</p>
+                </div>
+
+                <div class="glass p-6 rounded-2xl hover:scale-105 transition-transform">
+                    <span class="bg-green-400 text-xs font-bold px-2 py-1 rounded uppercase">Update</span>
+                    <h3 class="text-xl font-semibold mt-3">New DMS bulletine release on Booking experience</h3>
+                    <p class="mt-2 text-gray-600">Check the DMS portal for the updated bulletin which you need to follow from now on.</p>
+                    <p class="mt-4 text-sm opacity-70">Posted: Yesterday</p>
+                </div>
+
+                <div class="glass p-6 rounded-2xl hover:scale-105 transition-transform">
+                    <span class="bg-blue-400 text-xs font-bold px-2 py-1 rounded uppercase">Event</span>
+                    <h3 class="text-xl font-semibold mt-3">CXM Recognition Program</h3>
+                    <p class="mt-2 text-gray-600">Q1 CXM assessment will be released soon. Post that Prizes will distributed for the Top CXM's</p>
+                    <p class="mt-4 text-sm opacity-70">Posted: 3 days ago</p>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="survey" class="max-w-4xl mx-auto">
+            <div class="glass p-4 rounded-3xl shadow-2xl border border-white/20 overflow-hidden">
+                <h2 class="text-3xl font-bold mb-6 px-4">📋 Company Survey</h2>
+                
+                <iframe 
+                    src="https://prettyform.addxt.com/a/form/vf/1FAIpQLSchDrHhe2b8oEO5hWj4-3ymaaGS3SLzUvYfUgmbD2JzNRJMEQ" 
+                    width="900" 
+                    height="1240" 
+                    frameborder="0" 
+                    marginheight="0" 
+                    marginwidth="0">Loading…
+
+                </iframe>
+                    
+            </div>
+        </section>
+    </main>
+
+    <footer class="p-10 text-center opacity-60 text-sm">
+        &copy; 2026 Kia India. All rights reserved.
+    </footer>
+
+</body>
+</html>
